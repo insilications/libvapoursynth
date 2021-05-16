@@ -1,1 +1,2 @@
+sudo make -j16 install V=1 VERBOSE=1
 python -m unittest discover -s test

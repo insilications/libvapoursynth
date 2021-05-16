@@ -1,4 +1,4 @@
-libvapoursynth-script.so.0:_ZZSt9call_onceIRFvvEJEEvRSt9once_flagOT_DpOT0_ENUlvE0_4_FUNEv
+libvapoursynth-script.so.0:_ZZNSt9once_flag18_Prepare_executionC4IZSt9call_onceIRFvvEJEEvRS_OT_DpOT0_EUlvE_EERS6_ENUlvE_4_FUNEv
 libvapoursynth-script.so.0:vsscript_clearEnvironment
 libvapoursynth-script.so.0:vsscript_clearOutput
 libvapoursynth-script.so.0:vsscript_clearVariable

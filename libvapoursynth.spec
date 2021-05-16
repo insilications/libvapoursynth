@@ -11,6 +11,10 @@ Source0  : file:///aot/build/clearlinux/packages/libvapoursynth/libvapoursynth-v
 Summary  : A frameserver for the 21st century
 Group    : Development/Tools
 License  : LGPL-2.1-only
+Requires: libvapoursynth-bin = %{version}-%{release}
+Requires: libvapoursynth-lib = %{version}-%{release}
+Requires: libvapoursynth-python = %{version}-%{release}
+Requires: libvapoursynth-python3 = %{version}-%{release}
 BuildRequires : Cython
 BuildRequires : Cython-bin
 BuildRequires : Cython-python
@@ -76,6 +80,61 @@ BuildRequires : zlib-staticdev
 %description
 ![Windows](https://github.com/vapoursynth/vapoursynth/workflows/Windows/badge.svg) ![Linux](https://github.com/vapoursynth/vapoursynth/workflows/Linux/badge.svg) ![macOS](https://github.com/vapoursynth/vapoursynth/workflows/macOS/badge.svg)
 
+%package bin
+Summary: bin components for the libvapoursynth package.
+Group: Binaries
+
+%description bin
+bin components for the libvapoursynth package.
+
+
+%package dev
+Summary: dev components for the libvapoursynth package.
+Group: Development
+Requires: libvapoursynth-lib = %{version}-%{release}
+Requires: libvapoursynth-bin = %{version}-%{release}
+Provides: libvapoursynth-devel = %{version}-%{release}
+Requires: libvapoursynth = %{version}-%{release}
+
+%description dev
+dev components for the libvapoursynth package.
+
+
+%package lib
+Summary: lib components for the libvapoursynth package.
+Group: Libraries
+
+%description lib
+lib components for the libvapoursynth package.
+
+
+%package python
+Summary: python components for the libvapoursynth package.
+Group: Default
+Requires: libvapoursynth-python3 = %{version}-%{release}
+
+%description python
+python components for the libvapoursynth package.
+
+
+%package python3
+Summary: python3 components for the libvapoursynth package.
+Group: Default
+Requires: python3-core
+
+%description python3
+python3 components for the libvapoursynth package.
+
+
+%package staticdev
+Summary: staticdev components for the libvapoursynth package.
+Group: Default
+Requires: libvapoursynth-dev = %{version}-%{release}
+
+%description staticdev
+staticdev components for the libvapoursynth package.
+
+
 %prep
 %setup -q -n libvapoursynth
 cd %{_builddir}/libvapoursynth
@@ -94,7 +153,7 @@ unset https_proxy
 unset no_proxy
 export SSL_CERT_FILE=/var/cache/ca-certs/anchors/ca-certificates.crt
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1621161582
+export SOURCE_DATE_EPOCH=1621162494
 unset LD_AS_NEEDED
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
@@ -169,6 +228,7 @@ export LDFLAGS="${LDFLAGS_GENERATE}"
 --enable-vivtc
 make  %{?_smp_mflags}  V=1 VERBOSE=1
 
+sudo make -j16 install V=1 VERBOSE=1
 python -m unittest discover -s test
 make clean
 export CFLAGS="${CFLAGS_USE}"
@@ -198,9 +258,48 @@ make  %{?_smp_mflags}  V=1 VERBOSE=1
 
 
 %install
-export SOURCE_DATE_EPOCH=1621161582
+export SOURCE_DATE_EPOCH=1621162494
 rm -rf %{buildroot}
 %make_install
 
 %files
 %defattr(-,root,root,-)
+
+%files bin
+%defattr(-,root,root,-)
+/usr/bin/vspipe
+
+%files dev
+%defattr(-,root,root,-)
+/usr/include/vapoursynth/VSHelper.h
+/usr/include/vapoursynth/VSScript.h
+/usr/include/vapoursynth/VapourSynth.h
+/usr/lib64/pkgconfig/vapoursynth-script.pc
+/usr/lib64/pkgconfig/vapoursynth.pc
+
+%files lib
+%defattr(-,root,root,-)
+/usr/lib64/libvapoursynth-script.so
+/usr/lib64/libvapoursynth-script.so.0
+/usr/lib64/libvapoursynth-script.so.0.0.0
+/usr/lib64/libvapoursynth.so
+/usr/lib64/vapoursynth/libeedi3.so
+/usr/lib64/vapoursynth/libimwri.so
+/usr/lib64/vapoursynth/libmiscfilters.so
+/usr/lib64/vapoursynth/libmorpho.so
+/usr/lib64/vapoursynth/libocr.so
+/usr/lib64/vapoursynth/libremovegrain.so
+/usr/lib64/vapoursynth/libvinverse.so
+/usr/lib64/vapoursynth/libvivtc.so
+
+%files python
+%defattr(-,root,root,-)
+
+%files python3
+%defattr(-,root,root,-)
+/usr/lib/python3*/*
+
+%files staticdev
+%defattr(-,root,root,-)
+/usr/lib64/libvapoursynth-script.a
+/usr/lib64/libvapoursynth.a
