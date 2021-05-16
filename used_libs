@@ -1,0 +1,13 @@
+libMagick++-7.Q16HDRI.so.4
+libMagickCore-7.Q16HDRI.so.8
+libMagickWand-7.Q16HDRI.so.8
+libarchive.so.13
+libc.so.6
+libcurl.so.4
+libdl.so.2
+libgcc_s.so.1
+libm.so.6
+libpython3.9.so.1.0
+libstdc++.so.6
+libtesseract.so.4
+libzimg.so.2

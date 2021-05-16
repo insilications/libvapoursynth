@@ -1,0 +1,5 @@
+Configure miss: g++ option to enable C++11 features
+Configure miss: cpuset_getaffinity
+Configure miss: cython3
+Configure miss: library containing libiconv_open
+Configure miss: libavcodec libavformat libavutil

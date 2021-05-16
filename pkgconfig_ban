@@ -1,0 +1,7 @@
+# This file contains pkgconfig build requirements that get picked up
+# but are undesirable. One entry per line, no whitespace.
+python-$PYTHON_VERSION-embed
+# --disable-subtext libavcodec libavformat libavutil
+libavcodec
+libavformat
+libavutil
