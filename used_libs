@@ -1,7 +1,7 @@
 ld-linux-x86-64.so.2
 libMagick++-7.Q16HDRI.so.5
-libMagickCore-7.Q16HDRI.so.9
-libMagickWand-7.Q16HDRI.so.9
+libMagickCore-7.Q16HDRI.so.10
+libMagickWand-7.Q16HDRI.so.10
 libarchive.so.13
 libc.so.6
 libcurl.so.4

@@ -1,3 +1,7 @@
+r54:
+fixed misc.Hysteresis handling of floating point U/V planes (AkarinVS)
+fixed memory leak on free in expr filter on linux (AkarinVS)
+
 r53:
 updated visual studio 2019 runtime version
 updated to python 3.9 for windows
