@@ -5,7 +5,7 @@
 %define keepstatic 1
 Name     : libvapoursynth
 Version  : 21.05.26
-Release  : 5
+Release  : 301
 URL      : file:///aot/build/clearlinux/packages/libvapoursynth/libvapoursynth-v21.05.26.tar.gz
 Source0  : file:///aot/build/clearlinux/packages/libvapoursynth/libvapoursynth-v21.05.26.tar.gz
 Summary  : A frameserver for the 21st century
@@ -153,7 +153,7 @@ unset https_proxy
 unset no_proxy
 export SSL_CERT_FILE=/var/cache/ca-certs/anchors/ca-certificates.crt
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1622628770
+export SOURCE_DATE_EPOCH=1622798087
 unset LD_AS_NEEDED
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
@@ -265,7 +265,7 @@ fi
 
 
 %install
-export SOURCE_DATE_EPOCH=1622628770
+export SOURCE_DATE_EPOCH=1622798087
 rm -rf %{buildroot}
 %make_install
 
